@@ -6,15 +6,16 @@ using namespace std;
 int main(){
     int numero, p1, p2, p3;
 
-    cin >> numero;
-    
     ifstream entrada("chaves.txt");
     ofstream saida("codigo.txt");
 
+    if (!entrada || !saida) {
+        cout << "Erro ao abrir arquivo!" << endl;
+        return 1;
+    }
 
-    entrada >> p1;
-    entrada >> p2; 
-    entrada >> p3;
+    cin >> numero;
+    entrada >> p1, p2, p3;
 
     int resultado1 = numero % p1;
     int resultado2 = numero % p2;
